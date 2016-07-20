@@ -28,8 +28,4 @@ export class HeroFormComponent{
         setTimeout(() => this.active = true, 0);
     }
 
-    onSubmit(){
-        this.submitted = true;
-    }
-
 }

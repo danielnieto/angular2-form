@@ -1,1 +1,22 @@
-<h1>new forms</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+
+<div>
+    <label for="skuInput">SKU</label>
+    <input type="text" id="skuInput" required name="sku" ngModel>
+</div>
+<div>
+    <label for="nameInput">Name</label>
+    <input type="text" id="nameInput" [formControl]="myForm.controls['name']">
+ </div>
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+</form>
+
+<div *ngIf="sku.hasError('required')">
+    SKU esta vacio!
+</div>
+
+<div *ngIf="sku.hasError('invalidSku')">
+    SKU debe comenzar con 123
+</div>
+
+{{diagnostics}}
